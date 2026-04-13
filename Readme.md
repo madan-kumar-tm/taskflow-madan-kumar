@@ -6,33 +6,53 @@ TaskFlow is a production-ready REST API built with the Gin framework, focusing o
 ---
 
 ##  Tech Stack
-* **Language:** [Go](https://go.dev/) (Gin Framework)
-* **Database:** [PostgreSQL](https://www.postgresql.org/) with [GORM](https://gorm.io/)
-* **Migrations:** [golang-migrate](https://github.com/golang-migrate/migrate)
+* **Language:**  Go (Gin Framework)
+* **Database:** PostgreSQL with GORM
+* **Migrations:** golang-migrate
 * **DevOps:** Docker & Docker Compose
 * **Auth:** JWT (JSON Web Tokens)
+* **API:** REST API
 
 ---
 
-## Architecture Decisions
-* **Versioned Migrations:** We avoid `AutoMigrate` to maintain strict schema control and prevent unexpected production changes.
-* **Decoupled Migration Service:** A dedicated container ensures the database schema is fully ready before the API attempts to connect.
-* **Dockerized Environment:** Ensures "it works on my machine" consistency across all development environments.
+# Architecture Decisions
+##  **Structure**
+**I followed a layered architecture:**
+
+* **Controllers:**  handle HTTP requests, validation, and responses
+* **Services:**  contain business logic and database operations
+* **Routes:**  define API endpoints and group them logically
+* **Middleware:**  handle authentication (JWT)
+* **Config:**  manage database connection and environment setup
+
+**This separation keeps the codebase clean, testable, and easier to scale.**
+
+## Why This Approach?
+* I used Gin because it is lightweight, fast, and widely used in Go backend systems.
+* I separated controllers and services to avoid mixing HTTP logic with business logic.
+* I used JWT authentication because it is stateless and easy to integrate with APIs.
+* I used manual migrations (golang-migrate) instead of GORM auto-migrate to have full control over schema changes.
+  
+## Tradeoffs I Made
+* I did not implement a refresh token mechanism → kept auth simple (only access token with 24h expiry).
+* I used basic validation and error handling → not fully standardized across all endpoints.
+* I focused more on functionality than optimization → queries and indexing can be improved.
+* I used UUIDs for IDs which are good for distributed systems, but slightly heavier than integers.
 
 ---
 
 ##  Getting Started
 
 ### Prerequisites
-* Docker Desktop installed.
+* Docker Desktop installed required.
 
 ### Installation & Run
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/madan-kumar-tm/taskflow-madan-kumar-tm.git
-   cd taskflow-madan-kumar-tm
+   git clone https://github.com/madan-kumar-tm/taskflow-madan-kumar.git
+   cd taskflow-madan-kumar/backend
    ```
-2. **Setup Environment**
+2. **Setup Environment(change DB_PASSWORD and JWT_SECRET field)**
    ```bash
    cp .env.example .env
    ```
@@ -52,14 +72,18 @@ The API will be live at `http://localhost:8080`.
 * **Email:** `test@example.com`
 * **Password:** `password123`
 
+---
+##  API Reference
+**Import collection from Postman**
+   ```bash
+    --build
+   ```
+
+
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
 | `POST` | `/auth/register` | Create a new account |
 | `POST` | `/auth/login` | Receive JWT access token |
-
----
-
-##  API Reference
 
 ### Projects
 | Method | Endpoint | Description |
