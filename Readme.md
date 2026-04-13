@@ -52,7 +52,7 @@ TaskFlow is a production-ready REST API built with the Gin framework, focusing o
    git clone https://github.com/madan-kumar-tm/taskflow-madan-kumar.git
    cd taskflow-madan-kumar/backend
    ```
-2. **Setup Environment(change DB_PASSWORD and JWT_SECRET field)**
+2. **Setup Environment(Update DB_PASSWORD and JWT_SECRET field)**
    ```bash
    cp .env.example .env
    ```
@@ -76,7 +76,7 @@ The API will be live at `http://localhost:8080`.
 ##  API Reference
 **Import collection from Postman**
    ```bash
-    https://github.com/madan-kumar-tm/taskflow-madan-kumar/blob/main/postman/collections/TaskFlow%20Collection.postman_collection.json 
+    https://github.com/madan-kumar-tm/taskflow-madan-kumar/tree/main/postman/collections
    ```
 * **Steps:**
 * **1.** Import collection into Postman
