@@ -76,8 +76,13 @@ The API will be live at `http://localhost:8080`.
 ##  API Reference
 **Import collection from Postman**
    ```bash
-    --build
+    https://github.com/madan-kumar-tm/taskflow-madan-kumar/blob/main/postman/collections/TaskFlow%20Collection.postman_collection.json 
    ```
+* **Steps:**
+* **1.** Import collection into Postman
+* **2.** Set environment variable base_url
+* **3.** Run Login API to generate token
+* **4.** Use token for all protected routes
 
 
 | Method | Endpoint | Description |
@@ -114,9 +119,10 @@ docker logs taskflow-migrate
 
 ### Future Roadmap
 * [ ] Pagination for project and task lists.
-* [ ] Comprehensive Integration Test Suite.
-* [ ] CI/CD Pipeline integration.
-* [ ] Structured logging with Request/Trace IDs.
+* [ ] Comprehensive Integration Test Suite
+* [ ] Add refresh token system for better auth.
+* [ ] Add frontend (React dashboard).
+* [ ] Improve error handling consistency
 
 ---
 
