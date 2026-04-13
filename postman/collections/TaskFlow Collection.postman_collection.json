@@ -1,0 +1,928 @@
+{
+  "info": {
+    "_postman_id": "a16879cd-c4e3-4114-91c9-2c3776aea1f5",
+    "name": "TaskFlow Collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "item": [
+        {
+          "name": "Register",
+          "id": "393df579-2cbd-4813-816d-2de96101fb21",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"demo\",\r\n  \"email\": \"demo@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "error1: invalid email",
+          "id": "7c1b497f-b2db-4e8e-aacf-ac06a547fc8f",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"madan\",\r\n  \"email\": \"demgmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "error2: dupliate email",
+          "id": "a2eac114-665d-4356-8a54-0bb9d417cc3a",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"demo\",\r\n  \"email\": \"demo@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "error3: user_name is Null",
+          "id": "0054ae57-c5b6-4b9b-b2b1-725cbc955a36",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"\",\r\n  \"email\": \"demo@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "error4: password is Null",
+          "id": "79ce3642-bf3c-467d-b5ab-26d4f3b30540",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"demo\",\r\n  \"email\": \"demo@gmail.com\",\r\n  \"password\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "error5: password is empty",
+          "id": "00eb4f06-26f2-4e22-b7c7-9e82819fbce4",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"demo\",\r\n  \"email\": \"demo@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "error6: user_name is empty",
+          "id": "910a1140-8bc0-47ad-ab4a-901e5c7fb7d4",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"demo@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "error 7: email is empty",
+          "id": "57500809-d6d7-47aa-9b5c-66537ec6d6a7",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"demo\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register",
+          "id": "0a148957-43fb-4db3-b608-8219365f1b16",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"username\": \"demo2\",\r\n  \"email\": \"demo2@gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "0af77c9e-821b-40b3-a6db-bb6697e3f8ee",
+      "description": "Creates a new user account in the TaskFlow system. Use this endpoint to onboard a new user before authentication"
+    },
+    {
+      "name": "Login",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "d3de95af-8e35-4b8e-938a-32f187830f0b",
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "b547e8bd-a6bc-488e-bce5-2c7bacf479d8",
+                "exec": [
+                  "let res = pm.response.json();\r",
+                  "pm.environment.set(\"token\", res.token);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "8c404b5c-d186-49c8-97dc-99307a58d2a0",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"dem0gmail.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "error1: password is null",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "1fcac869-44ed-4c3c-a05d-ddc655f97f97",
+                "exec": [
+                  "let res = pm.response.json();\r",
+                  "pm.environment.set(\"token\", res.token);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "4c46d999-684e-41c5-8511-057b9dc6b48a",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"demo@gmail.com\",\r\n  \"password\": \"\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "error2: email is null",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "17b80d47-cbf1-42b3-b0b9-01526702d37c",
+                "exec": [
+                  "let res = pm.response.json();\r",
+                  "pm.environment.set(\"token\", res.token);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "a2a23234-433f-4b51-9c5e-ef2af88d4586",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "error3: invalid email or password",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "id": "66a83435-bc64-4f49-a54e-f1740bfa68cf",
+                "exec": [
+                  "let res = pm.response.json();\r",
+                  "pm.environment.set(\"token\", res.token);"
+                ],
+                "type": "text/javascript",
+                "packages": {}
+              }
+            }
+          ],
+          "id": "4e8254ad-0be8-4de1-89f5-44051a06b760",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"demo@gmail.com\",\r\n  \"password\": \"12334566\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "2882fe5b-fdd3-41d0-9e0a-71dab8a641fd"
+    },
+    {
+      "name": "Project",
+      "item": [
+        {
+          "name": "Create project",
+          "item": [
+            {
+              "name": "Create Project",
+              "id": "81219e95-f025-404c-91a6-c62f293df9c3",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"name\": \"Demo Project\",\r\n  \"description\": \"Test project\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/projects",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "projects"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "error1: name is null",
+              "id": "86d61cfb-8dc9-4dfc-a035-ca73ba3c870c",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"\",\r\n    \"description\": \"Test project\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/projects",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "projects"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "300cf4c7-db5b-4ab2-bc10-4ead10292264"
+        },
+        {
+          "name": "Update Project",
+          "item": [
+            {
+              "name": "Update Project",
+              "id": "9c317eef-e01e-436d-a34d-c43e1e257c67",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"description\": \"Demo project\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/projects/11649b99-3131-4f5f-ad79-220ef9f52896",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "projects",
+                    "11649b99-3131-4f5f-ad79-220ef9f52896"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "cf35399b-517d-4160-bfed-955cdde79a32"
+        },
+        {
+          "name": "Delete Project",
+          "item": [
+            {
+              "name": "Delete Project",
+              "id": "be60b1d8-4748-4937-bdba-2e9b9d8e5ab8",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/projects/6340af67-1789-4546-a990-2a5a9430e547",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "projects",
+                    "6340af67-1789-4546-a990-2a5a9430e547"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "4cf5ee53-f322-4409-8c23-9ec2c632cdeb"
+        },
+        {
+          "name": "Get Projects",
+          "item": [
+            {
+              "name": "Get Project",
+              "id": "bea745d7-002c-4ba8-a7eb-63765e9b2d81",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/projects",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "projects"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get all task of particular project",
+              "id": "d349342a-31c6-4057-8587-527c309a1a42",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ],
+          "id": "79e76690-f9a9-40a2-ad50-c9ef6c976ab2"
+        }
+      ],
+      "id": "ff1d5b43-9284-4dad-969e-a64167f04733"
+    },
+    {
+      "name": "Task",
+      "item": [
+        {
+          "name": "Create Task",
+          "item": [
+            {
+              "name": "Create Task",
+              "id": "9f7ce8c1-1b16-4235-845b-c1d27a5eac2d",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Build UI\",\r\n  \"description\": \"Implement APIs\",\r\n  \"priority\": \"low\",\r\n  \"project_id\": \"11649b99-3131-4f5f-ad79-220ef9f52896\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/projects/11649b99-3131-4f5f-ad79-220ef9f52896/tasks",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "projects",
+                    "11649b99-3131-4f5f-ad79-220ef9f52896",
+                    "tasks"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Task for assignee_id",
+              "id": "9dc0c34f-f6e3-4876-855e-2715e8b4124e",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"New Task\",\r\n  \"description\": \"Testing assign\",\r\n  \"priority\": \"high\",\r\n  \"assignee_id\": \"fd555a61-0035-4d06-91f9-c2c360a1b5b2\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/projects/11649b99-3131-4f5f-ad79-220ef9f52896/tasks",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "projects",
+                    "11649b99-3131-4f5f-ad79-220ef9f52896",
+                    "tasks"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create task1",
+              "id": "324ebf87-8c48-465e-bdd8-77718c06ecf8",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMjM4OTBkYTgtYzI5ZS00MzU0LWE4ZDAtNjkwMDMyODdmMjU3IiwiZW1haWwiOiJkZW1vQGdtYWlsLmNvbSIsImV4cCI6MTc3NjE1NjEwMn0.N4D7pP7rYc6AS36MRcQqJIXpO1NKgLn5SWNYI8rGohw"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"title\": \"Backend Services\",\r\n  \"description\": \"Implement APIs\",\r\n  \"priority\": \"low\",\r\n  \"project_id\": \"\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:8080/projects/6340af67-1789-4546-a990-2a5a9430e547/tasks",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "projects",
+                    "6340af67-1789-4546-a990-2a5a9430e547",
+                    "tasks"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "id": "2b209651-2dfc-4757-a29b-b86bdd7ea545",
+              "request": {
+                "method": "GET",
+                "header": []
+              },
+              "response": []
+            }
+          ],
+          "id": "18a25ab1-5aa8-4dea-9abc-08c28e25a424"
+        },
+        {
+          "name": "Get task",
+          "item": [
+            {
+              "name": "Get All task",
+              "id": "fb2dd246-a629-48b5-9c2b-7017a0eb58f5",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/projects/11649b99-3131-4f5f-ad79-220ef9f52896/tasks",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "projects",
+                    "11649b99-3131-4f5f-ad79-220ef9f52896",
+                    "tasks"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "45a9b907-2155-4f5f-8b7f-955e628ca93e"
+        },
+        {
+          "name": "Update task",
+          "item": [
+            {
+              "name": "Update new task",
+              "id": "af24c9fd-da60-4412-ac51-7c4bbf7a1465",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"status\": \"done\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{base_url}}/tasks/65994239-97d9-457d-9d00-8d8b62836fcc",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "tasks",
+                    "65994239-97d9-457d-9d00-8d8b62836fcc"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "93b5f676-7faf-4d44-90bd-02f9ee2fb72e"
+        },
+        {
+          "name": "Delete task",
+          "item": [
+            {
+              "name": "Delete task",
+              "id": "5993f0d1-4551-4123-b29b-01354a389658",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "",
+                    "value": "",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/tasks/65994239-97d9-457d-9d00-8d8b62836fcc",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "tasks",
+                    "65994239-97d9-457d-9d00-8d8b62836fcc"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ],
+          "id": "a7c93698-c281-4d6a-89e6-1a5f39afdf1d"
+        }
+      ],
+      "id": "7b301fe1-c40b-4387-8e86-e2dd36c34f60"
+    }
+  ]
+}

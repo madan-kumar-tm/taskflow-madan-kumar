@@ -1,0 +1,572 @@
+{
+  "info": {
+    "_postman_id": "7d0ecbc7-0e7f-4f52-8a24-2f877f3407d3",
+    "name": "Taskflow API",
+    "description": "Postman collection for the discovered Taskflow backend API endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "System",
+      "item": [
+        {
+          "name": "Health Check",
+          "id": "dc2ae141-eb4d-4969-919b-e7b73d489f13",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            },
+            "description": "Returns API health status."
+          },
+          "response": []
+        }
+      ],
+      "id": "a6ea8d65-605f-4bf4-94c2-7fbaaad270bf"
+    },
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "id": "9813be2c-d165-4ee1-a03d-30800cb7dc1c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"string\",\n  \"email\": \"user@example.com\",\n  \"password\": \"string-min-6\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            },
+            "description": "Register a new user account."
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('Login request returns success status', function () {",
+                  "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  "",
+                  "var jsonData = pm.response.json();",
+                  "if (jsonData && jsonData.token) {",
+                  "    pm.collectionVariables.set('token', jsonData.token);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "id": "97c4eb0d-b76c-4470-99d1-a8b8cb7a84b3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Authenticate a user and save the returned token into the collection variable when present."
+          },
+          "response": []
+        }
+      ],
+      "id": "79cc601f-9d18-4d15-9b19-015257daeea3"
+    },
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Create Project",
+          "id": "5c4782e0-805e-447e-ade1-e404ca34e003",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Project Alpha\",\n  \"description\": \"Optional project description\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/projects",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects"
+              ]
+            },
+            "description": "Create a new project."
+          },
+          "response": []
+        },
+        {
+          "name": "List Projects",
+          "id": "fee3fc86-473b-4833-84a1-e492504f8a23",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/projects?page=&limit=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": ""
+                },
+                {
+                  "key": "limit",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "List projects with pagination parameters."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Project",
+          "id": "45363d8b-cf65-4a22-a3bc-99140b0efeac",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}?status=&assignee=&page=&limit=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": ""
+                },
+                {
+                  "key": "assignee",
+                  "value": ""
+                },
+                {
+                  "key": "page",
+                  "value": ""
+                },
+                {
+                  "key": "limit",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Get a single project by ID. Query params included from discovered implementation data."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Project",
+          "id": "a7bf33ca-b420-40c2-8ef7-2ed5dfa5fffc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated project name\",\n  \"description\": \"Updated optional description\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}"
+              ]
+            },
+            "description": "Update a project by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Project",
+          "id": "f18878ac-97ae-496b-965e-a1b30655ffd0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}"
+              ]
+            },
+            "description": "Delete a project by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Project Stats",
+          "id": "21a6f962-f59b-422c-b188-4d8f9f1419b0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}/stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}",
+                "stats"
+              ]
+            },
+            "description": "Get stats for a project by ID."
+          },
+          "response": []
+        }
+      ],
+      "id": "fe5ef09f-f8f4-4814-aaa8-9ff7886c5313",
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Tasks",
+      "item": [
+        {
+          "name": "Create Task",
+          "id": "d73363ab-bdf8-45ce-9516-9a6115e28122",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Task title\",\n  \"description\": \"Optional task description\",\n  \"status\": \"todo\",\n  \"priority\": \"medium\",\n  \"assignee_id\": \"{{assigneeId}}\",\n  \"due_date\": \"2026-12-31T23:59:59Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}/tasks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}",
+                "tasks"
+              ]
+            },
+            "description": "Create a task within a project."
+          },
+          "response": []
+        },
+        {
+          "name": "List Tasks",
+          "id": "14a5b248-78f7-4527-b34b-e0e2066fedd0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/projects/{{projectId}}/tasks?status=&page=&limit=",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "projects",
+                "{{projectId}}",
+                "tasks"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": ""
+                },
+                {
+                  "key": "page",
+                  "value": ""
+                },
+                {
+                  "key": "limit",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "List tasks within a project with optional filters."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Task",
+          "id": "83dcb1f4-01ea-488b-a126-b65256690f02",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated task title\",\n  \"description\": \"Updated optional task description\",\n  \"status\": \"in_progress\",\n  \"priority\": \"high\",\n  \"assignee_id\": \"{{assigneeId}}\",\n  \"due_date\": \"2026-12-31T23:59:59Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks/{{taskId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasks",
+                "{{taskId}}"
+              ]
+            },
+            "description": "Update a task by ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Task",
+          "id": "cf215dc6-76c7-41cf-b892-4f85a75f0023",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks/{{taskId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tasks",
+                "{{taskId}}"
+              ]
+            },
+            "description": "Delete a task by ID."
+          },
+          "response": []
+        }
+      ],
+      "id": "cd402f0b-7972-4d68-a1b4-737aadc9fe84",
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "List Users",
+          "id": "2e1f334e-cdd9-4371-b257-0b1bf5b9c20f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/users",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "List users for assignment and lookup."
+          },
+          "response": []
+        }
+      ],
+      "id": "25a90f97-4777-4f25-8d2c-b60ca4488a59",
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{token}}",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "id": "06ee1b60-4d35-43df-8d68-ee502b8bdc9d",
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "id": "20e6c807-4c52-4a54-a38b-76289c1c847f",
+      "key": "token",
+      "value": ""
+    },
+    {
+      "id": "59fac15e-8609-400e-ab19-65ee4ae5b67f",
+      "key": "projectId",
+      "value": ""
+    },
+    {
+      "id": "36af0ca6-59ac-4400-b136-ad9c47b1ec8c",
+      "key": "taskId",
+      "value": ""
+    },
+    {
+      "id": "bd1b3bdc-0214-4615-a60d-def06b965fef",
+      "key": "assigneeId",
+      "value": ""
+    }
+  ]
+}
