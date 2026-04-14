@@ -44,7 +44,7 @@ TaskFlow is a production-ready REST API built with the Gin framework, focusing o
 ##  Getting Started
 
 ### Prerequisites
-* Docker Desktop installed required.
+* Docker Desktop install required.
 
 ### Installation & Run
 1. **Clone the repository**
