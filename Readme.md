@@ -1,5 +1,5 @@
 #  TaskFlow
-**A robust Go-based Task Management Backend.**
+**TaskFlow is a Task Management application.**
 
 TaskFlow is a production-ready REST API built with the Gin framework, focusing on project organization, task tracking, and secure JWT-based authentication.
 
