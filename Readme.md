@@ -74,7 +74,7 @@ The API will be live at `http://localhost:8080`.
 
 ---
 ##  API Reference
-**Import collection from Postman**
+**Import collection**
    ```bash
     https://github.com/madan-kumar-tm/taskflow-madan-kumar/tree/main/postman/collections
    ```
@@ -117,7 +117,7 @@ Migrations run automatically on startup. To check migration status:
 docker logs taskflow-migrate
 ```
 
-### Future Roadmap
+### What I'D Do With More Time
 * [ ] Pagination for project and task lists.
 * [ ] Comprehensive Integration Test Suite
 * [ ] Add refresh token system for better auth.
